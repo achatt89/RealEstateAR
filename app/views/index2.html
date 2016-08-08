@@ -1,0 +1,43 @@
+<html lang="en">
+  <head>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  </head>
+  <body>
+  <style>
+  .btn {display:block; margin: 5px;}
+  </style>
+  <br/>
+	<div class="container">
+	  <div class="row">
+		<div class="col-md-12">
+		  <ul class="nav nav-tabs" role="tablist">
+			<li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Residential Complex</a></li>
+			<li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Commercial Complex</a></li>
+		  </ul>
+
+		  <div class="tab-content">
+			<div role="tabpanel" class="tab-pane active" id="home">
+			<button class="btn btn-primary">Button A</button>
+			<button class="btn btn-primary">Button B</button>
+			<button class="btn btn-primary">Button C</button>
+			</div>
+			<div role="tabpanel" class="tab-pane" id="profile">
+			<button class="btn btn-success">Button X</button>
+			<button class="btn btn-success">Button Y</button>
+			<button class="btn btn-success">Button Z</button>
+			</div>
+		  </div>
+		</div>
+	  </div>
+
+	<script type="text/javascript">
+	$('li a').click(function (e) {
+	  e.preventDefault()
+	  $(this).tab('show')
+	});
+	</script>    
+    </div> 
+  </body>
+</html>
