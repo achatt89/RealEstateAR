@@ -31,6 +31,11 @@ angular
         controller: 'AboutCtrl',
         controllerAs: 'about'
       })
+      .when('/index2', {
+        templateUrl: 'views/index2.html',
+        controller: 'Index2Ctrl',
+        controllerAs: 'index2'
+      })
       .otherwise({
         redirectTo: '/'
       });
