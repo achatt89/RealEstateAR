@@ -8,10 +8,8 @@
  * Controller of the arRealEstateApp
  */
 angular.module('arRealEstateApp')
-  .controller('MainCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('MainCtrl', function ($scope, $location) {
+    $scope.videoEnd = function() {
+    	$location.path('landingMenu');
+    };
   });

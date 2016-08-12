@@ -17,7 +17,8 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'ui.event'
   ])
   .config(function ($routeProvider) {
     $routeProvider
@@ -30,6 +31,11 @@ angular
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl',
         controllerAs: 'about'
+      })
+      .when('/landingMenu', {
+        templateUrl: 'views/landingmenu.html',
+        controller: 'LandingmenuCtrl',
+        controllerAs: 'landingMenu'
       })
       .otherwise({
         redirectTo: '/'
