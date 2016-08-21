@@ -38,6 +38,11 @@ angular
         controller: 'LandingmenuCtrl',
         controllerAs: 'landingMenu'
       })
+      .when('/businessCentre', {
+        templateUrl: 'views/businesscentre.html',
+        controller: 'BusinesscentreCtrl',
+        controllerAs: 'businessCentre'
+      })
       .otherwise({
         redirectTo: '/'
       });

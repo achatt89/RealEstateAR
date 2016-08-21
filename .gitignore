@@ -3,3 +3,8 @@
 /.tmp
 /.sass-cache
 /bower_components
+/app/assets/baked_optional
+/app/assets/texture_exports
+/app/business*.FBX
+/app/business*.max
+/app/business_centre.js
