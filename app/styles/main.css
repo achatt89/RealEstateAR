@@ -92,3 +92,12 @@ body {
     border-bottom: 0;
   }
 }
+
+.landingMenuButton {
+  height: 140px;
+  width: 20%;
+  border-radius: 75px;
+  display:table;
+  margin:auto;
+  background-repeat: round;
+}
