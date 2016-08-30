@@ -19,15 +19,16 @@ angular.module('arRealEstateApp')
         var windowHalfX = window.innerWidth / 2;
         var windowHalfY = window.innerHeight / 2;
 
-        var texturePath = '../assets/texture_exports/';
-        var textureExtension = '.jpg';
+/*        var texturePath = '../assets/texture_exports/';
+        var textureExtension = '.jpg';*/
 
         var OBJ_MTLPath = '../assets/';
 
-        var OBJFile = 'business center.obj';
-        var MTLFile = 'business center.mtl';
+        var OBJFile = 'business_centre.obj';
+        var MTLFile = 'business_centre.mtl';
+        var TextureFile = 'business_centre.png';
 
-        var textureFilePath = [
+        /*var textureFilePath = [
             { name: 'texture_1', URL: texturePath + 'boss chairVRayCompleteMap' + textureExtension },
             { name: 'texture_2', URL: texturePath + 'bottle003VRayCompleteMap' + textureExtension },
             { name: 'texture_3', URL: texturePath + 'bottle006VRayCompleteMap' + textureExtension },
@@ -60,8 +61,8 @@ angular.module('arRealEstateApp')
             { name: 'texture_30', URL: texturePath + 'projectorVRayCompleteMap' + textureExtension },
             { name: 'texture_31', URL: texturePath + 'shelfVRayCompleteMap' + textureExtension },
             { name: 'texture_32', URL: texturePath + 'slidingVRayCompleteMap' + textureExtension },
-            { name: 'texture_32', URL: texturePath + 'tableVRayCompleteMap' + textureExtension }
-        ];
+            { name: 'texture_33', URL: texturePath + 'tableVRayCompleteMap' + textureExtension }
+        ];*/
 
         init();
         animate();
@@ -111,7 +112,7 @@ angular.module('arRealEstateApp')
 
             var onError = function(xhr) {};
 
-            THREE.Loader.Handlers.add(/\.dds$/i, new THREE.DDSLoader());
+            //THREE.Loader.Handlers.add(/\.dds$/i, new THREE.DDSLoader());
 
             var texture = new THREE.Texture();
 
@@ -144,34 +145,12 @@ angular.module('arRealEstateApp')
 
             //Texture LOADER
             var textureLoader = new THREE.ImageLoader();
-            textureLoader.setPath('../assets/');
-            textureLoader.load('tableVRayCompleteMap.png', function(image) {
+            textureLoader.setPath(OBJ_MTLPath);
+            textureLoader.load(TextureFile, function(image) {
                 texture.image = image;
                 texture.needsUpdate = true;
                 console.log("Texture OBJ", texture);
             });
-
-            /*var textureLoaded = 0;
-            var textureLoaderFunction = function() {
-                if (textureLoaded === textureFilePath.length) {
-                    return
-                } else {
-                    var textureFile = textureFilePath[textureLoaded].URL;
-                    //console.log("TEXTURE URL", textureFile);
-                    var textureLoader = new THREE.TextureLoader();
-
-                    textureLoader.load(textureFile, function(image) {
-                        //console.log("TEXTURE CRAP", image);
-                        texture.image = image;
-                        console.log("Texture OBJ", texture);
-                        textureLoaded++;
-                        textureLoaderFunction();
-                    })
-                }
-            }
-
-            textureLoaderFunction();*/
-
 
             //Render CODE
             renderer = new THREE.WebGLRenderer();
