@@ -19,49 +19,11 @@ angular.module('arRealEstateApp')
         var windowHalfX = window.innerWidth / 2;
         var windowHalfY = window.innerHeight / 2;
 
-        var texturePath = '../assets/texture_exports/';
-        var textureExtension = '.jpg';
+        var OBJ_MTLPath = '../assets/business_centre/';
 
-        var OBJ_MTLPath = '../assets/';
-
-        var OBJFile = 'business center.obj';
-        var MTLFile = 'business center.mtl';
-
-        var textureFilePath = [
-            { name: 'texture_1', URL: texturePath + 'boss chairVRayCompleteMap' + textureExtension },
-            { name: 'texture_2', URL: texturePath + 'bottle003VRayCompleteMap' + textureExtension },
-            { name: 'texture_3', URL: texturePath + 'bottle006VRayCompleteMap' + textureExtension },
-            { name: 'texture_4', URL: texturePath + 'bottle007VRayCompleteMap' + textureExtension },
-            { name: 'texture_5', URL: texturePath + 'bottle008VRayCompleteMap' + textureExtension },
-            { name: 'texture_6', URL: texturePath + 'bottle009VRayCompleteMap' + textureExtension },
-            { name: 'texture_7', URL: texturePath + 'bottle010VRayCompleteMap' + textureExtension },
-            { name: 'texture_8', URL: texturePath + 'chair 1VRayCompleteMap' + textureExtension },
-            { name: 'texture_9', URL: texturePath + 'chair 2VRayCompleteMap' + textureExtension },
-            { name: 'texture_10', URL: texturePath + 'chair 3VRayCompleteMap' + textureExtension },
-            { name: 'texture_11', URL: texturePath + 'chair 4VRayCompleteMap' + textureExtension },
-            { name: 'texture_12', URL: texturePath + 'chair 5VRayCompleteMap' + textureExtension },
-            { name: 'texture_13', URL: texturePath + 'chair 6VRayCompleteMap' + textureExtension },
-            { name: 'texture_14', URL: texturePath + 'chair 7VRayCompleteMap' + textureExtension },
-            { name: 'texture_15', URL: texturePath + 'chair 8VRayCompleteMap' + textureExtension },
-            { name: 'texture_16', URL: texturePath + 'doorVRayCompleteMap' + textureExtension },
-            { name: 'texture_17', URL: texturePath + 'fileVRayCompleteMap' + textureExtension },
-            { name: 'texture_18', URL: texturePath + 'floorVRayCompleteMap' + textureExtension },
-            { name: 'texture_19', URL: texturePath + 'glassVRayCompleteMap' + textureExtension },
-            { name: 'texture_20', URL: texturePath + 'lamp 1VRayCompleteMap' + textureExtension },
-            { name: 'texture_21', URL: texturePath + 'lamp 2VRayCompleteMap' + textureExtension },
-            { name: 'texture_22', URL: texturePath + 'lamp 3VRayCompleteMap' + textureExtension },
-            { name: 'texture_23', URL: texturePath + 'lamp 4VRayCompleteMap' + textureExtension },
-            { name: 'texture_24', URL: texturePath + 'laptopVRayCompleteMap' + textureExtension },
-            { name: 'texture_25', URL: texturePath + 'Object001VRayCompleteMap' + textureExtension },
-            { name: 'texture_26', URL: texturePath + 'Object004VRayCompleteMap' + textureExtension },
-            { name: 'texture_27', URL: texturePath + 'Object005VRayCompleteMap' + textureExtension },
-            { name: 'texture_28', URL: texturePath + 'photoframeVRayCompleteMap' + textureExtension },
-            { name: 'texture_29', URL: texturePath + 'pro screeenVRayCompleteMap' + textureExtension },
-            { name: 'texture_30', URL: texturePath + 'projectorVRayCompleteMap' + textureExtension },
-            { name: 'texture_31', URL: texturePath + 'shelfVRayCompleteMap' + textureExtension },
-            { name: 'texture_32', URL: texturePath + 'slidingVRayCompleteMap' + textureExtension },
-            { name: 'texture_32', URL: texturePath + 'tableVRayCompleteMap' + textureExtension }
-        ];
+        var OBJFile = 'business_centre.obj';
+        var MTLFile = 'business_centre.mtl';
+        var TextureFile = 'business_centre.png';
 
         init();
         animate();
@@ -111,8 +73,6 @@ angular.module('arRealEstateApp')
 
             var onError = function(xhr) {};
 
-            THREE.Loader.Handlers.add(/\.dds$/i, new THREE.DDSLoader());
-
             var texture = new THREE.Texture();
 
             //Material LOADER
@@ -144,34 +104,11 @@ angular.module('arRealEstateApp')
 
             //Texture LOADER
             var textureLoader = new THREE.ImageLoader();
-            textureLoader.setPath('../assets/');
-            textureLoader.load('tableVRayCompleteMap.png', function(image) {
+            textureLoader.setPath(OBJ_MTLPath);
+            textureLoader.load(TextureFile, function(image) {
                 texture.image = image;
                 texture.needsUpdate = true;
-                console.log("Texture OBJ", texture);
             });
-
-            /*var textureLoaded = 0;
-            var textureLoaderFunction = function() {
-                if (textureLoaded === textureFilePath.length) {
-                    return
-                } else {
-                    var textureFile = textureFilePath[textureLoaded].URL;
-                    //console.log("TEXTURE URL", textureFile);
-                    var textureLoader = new THREE.TextureLoader();
-
-                    textureLoader.load(textureFile, function(image) {
-                        //console.log("TEXTURE CRAP", image);
-                        texture.image = image;
-                        console.log("Texture OBJ", texture);
-                        textureLoaded++;
-                        textureLoaderFunction();
-                    })
-                }
-            }
-
-            textureLoaderFunction();*/
-
 
             //Render CODE
             renderer = new THREE.WebGLRenderer();
