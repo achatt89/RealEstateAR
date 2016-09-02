@@ -19,4 +19,14 @@ angular.module('arRealEstateApp')
   	    this.location.url('businessCentre');  	  	
   	  }
   	}
+    $scope.businessCentre = function(){
+      if(this.location){
+        this.location.url('businessCentre');        
+      }
+    }
+    $scope.gym = function(){
+      if(this.location){
+        this.location.url('gym');        
+      }
+    }
   });
