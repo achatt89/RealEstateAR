@@ -140,7 +140,7 @@ angular.module('arRealEstateApp')
 
         function render() {
             camera.position.x += (mouseX - camera.position.x) * .05;
-            camera.position.y += (-mouseY - camera.position.y) * .05;
+            camera.position.y += (mouseY - camera.position.y) * .05;
             camera.lookAt(scene.position);
             renderer.render(scene, camera);
         }
