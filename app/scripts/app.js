@@ -43,6 +43,11 @@ angular
         controller: 'BusinesscentreCtrl',
         controllerAs: 'businessCentre'
       })
+      .when('/gym', {
+        templateUrl: 'views/gym.html',
+        controller: 'GymCtrl',
+        controllerAs: 'gym'
+      })
       .otherwise({
         redirectTo: '/'
       });
